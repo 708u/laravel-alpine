@@ -16,13 +16,15 @@ RUN apk --update-cache --no-cache add \
         oniguruma-dev && \
     rm -rf /var/cache/apk/* && \
     git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis && \
+    # Install dependencies for laravel.
+    # https://laravel.com/docs/6.x
     docker-php-ext-install \
-        intl \
+        bcmath \
         pdo_mysql \
         mbstring \
+        intl \
         zip \
         opcache \
-        bcmath \
         redis \
         gd && \
     pecl install xdebug-2.8.1 && \
