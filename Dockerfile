@@ -15,6 +15,7 @@ RUN apk --update-cache --no-cache add \
         icu-dev \
         oniguruma-dev && \
     rm -rf /var/cache/apk/* && \
+    git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis && \
     # Install dependencies for laravel.
     # https://laravel.com/docs/6.x
     docker-php-ext-install \
@@ -24,8 +25,9 @@ RUN apk --update-cache --no-cache add \
         intl \
         zip \
         opcache \
-        gd
-
-RUN pecl install redis-5.1.1 && \
+        redis \
+        gd && \
     pecl install xdebug-2.8.1 && \
-    docker-php-ext-enable redis xdebug
+    docker-php-ext-enable xdebug && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
+    composer global require hirak/prestissimo
