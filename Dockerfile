@@ -26,13 +26,13 @@ RUN apk --update-cache --no-cache add \
         zip \
         opcache \
         redis \
-        gd
+        gd \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
+    && composer global require hirak/prestissimo
 
 FROM builder as dev
 
 COPY --from=builder . .
 # Install packages and extensions includes only using development.
 RUN pecl install xdebug-2.8.1 && \
-    docker-php-ext-enable xdebug && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
-    composer global require hirak/prestissimo
+    docker-php-ext-enable xdebug
