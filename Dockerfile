@@ -1,4 +1,4 @@
-FROM php:7.4.3-fpm-alpine as builder
+FROM php:7.4.3-fpm-alpine as core
 LABEL maintainer=708-U
 
 # Install packages and extensions depended on Laravel.
@@ -30,9 +30,9 @@ RUN apk --update-cache --no-cache add \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && composer global require hirak/prestissimo
 
-FROM builder as dev
+FROM core as dev
 
-COPY --from=builder . .
+COPY --from=core . .
 # Install packages and extensions includes only using development.
 RUN pecl install xdebug-2.8.1 && \
     docker-php-ext-enable xdebug
