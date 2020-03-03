@@ -9,5 +9,5 @@ $ docker image build --target dev -t 708u/laravel-alpine:7.4.3-for-develop
 ## For production
 
 ```
-$ docker image build --target dev -t 708u/laravel-alpine
+$ docker image build --target core -t 708u/laravel-alpine
 ```
