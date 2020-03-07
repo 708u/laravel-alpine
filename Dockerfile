@@ -3,6 +3,8 @@ LABEL maintainer=708-U
 
 # Install packages and extensions depended on Laravel.
 RUN apk --update-cache --no-cache add \
+        yarn \
+        npm \
         curl \
         libzip-dev \
         libpng-dev \
