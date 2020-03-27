@@ -1,5 +1,10 @@
 # laravel-alpine
-laravel 6.* ready for image.
+laravel 7.* ready for image.
+
+## Confirmed
+- 6.x
+- 7.x
+
 
 ## For develop
 ```
