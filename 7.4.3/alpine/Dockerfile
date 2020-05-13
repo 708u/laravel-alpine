@@ -26,7 +26,6 @@ RUN apk --update-cache --no-cache add \
         opcache \
         redis \
         gd \
-        ## cleanup
-    && docker-php-source delete \ 
+    && docker-php-source delete \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && composer global require hirak/prestissimo
