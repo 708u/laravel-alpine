@@ -2,7 +2,8 @@ FROM php:7.4.3-fpm-alpine
 LABEL maintainer=708-U
 
 # Install packages and extensions depended on Laravel.
-RUN apk --update-cache --no-cache add \
+RUN apk update \
+    && apk --update-cache --no-cache add \
         curl \
         libzip-dev \
         libpng-dev \
@@ -32,4 +33,3 @@ RUN apk --update-cache --no-cache add \
         gd \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
     && composer global require hirak/prestissimo
-

@@ -5,6 +5,9 @@ LABEL maintainer=708-U
 RUN apk --update-cache --no-cache add \
         yarn \
         npm \
+        chromium \
+        chromium-chromedriver \
+        ttf-freefont \
         curl \
         libzip-dev \
         libpng-dev \
