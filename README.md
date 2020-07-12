@@ -6,6 +6,7 @@ laravel 7.* ready for image.
 
 - 7.4.3
 - 7.4.4
+- 7.4.7
 
 ## Images
 
